@@ -1,0 +1,3 @@
+<!-- BEGIN_INCLUDE(cftp:my-processor) -->
+    <cftp:my-processor content="#[map-payload:content]" />
+<!-- END_INCLUDE(cftp:my-processor) -->

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" prefix="qrcode" url="http://www.mulesoft.org/schema/mule/qrcode">
+  <global-cloud-connector extends="http://www.mulesoft.org/schema/mule/qrcode/abstractQrcodeConnectorGeneric" image="icons/large/qrcode-connector-48x32.png" localId="config" icon="icons/small/qrcode-connector-24x16.png" description="Global Qrcode configuration information." caption="Qrcode">
+    <attribute-category description="Qrcode configuration properties." caption="General">
+      <group caption="Generic" id="qrcodeGenericProperties">
+        <name required="true" description="Give a name to this configuration so it can be later referenced by config-ref." caption="Name" name="name"></name>
+      </group>
+      <group caption="Connection" id="connection">
+        <string javaType="java.lang.String" required="false" description="A username." caption="Username" name="username"></string>
+        <string javaType="java.lang.String" required="false" description="A password." caption="Password" name="password"></string>
+      </group>
+      <group caption="General" id="general">
+        <string javaType="java.lang.String" required="true" description="Configurable." caption="My Property" name="myProperty"></string>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector extends="http://www.mulesoft.org/schema/mule/qrcode/abstractQrcodeConnectorGeneric" image="icons/large/qrcode-connector-48x32.png" localId="qrcode-connector" icon="icons/small/qrcode-connector-24x16.png" description="Cloud Connector." caption="Qrcode" aliasId="org.mule.tooling.ui.modules.core.pattern.qrcode">
+    <attribute-category description="General." caption="General">
+      <group caption="Generic" id="qrcodeConnectorGeneric">
+        <modeSwitch description="Operation." caption="Operation" name="Qrcode operations to execute">
+          <mode modeLabel="Read bar code" modeId="http://www.mulesoft.org/schema/mule/qrcode/read-bar-code"></mode>
+          <mode modeLabel="Create bar code" modeId="http://www.mulesoft.org/schema/mule/qrcode/create-bar-code"></mode>
+          <mode modeLabel="Create q r code" modeId="http://www.mulesoft.org/schema/mule/qrcode/create-q-r-code"></mode>
+          <mode modeLabel="My processor" modeId="http://www.mulesoft.org/schema/mule/qrcode/my-processor"></mode>
+          <mode modeLabel="Read q r code" modeId="http://www.mulesoft.org/schema/mule/qrcode/read-q-r-code"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector abstract="true" image="icons/large/qrcode-connector-48x32.png" localId="abstractQrcodeConnectorGeneric" icon="icons/small/qrcode-connector-24x16.png" description="Interact with Qrcode." caption="Abstractqrcodeconnectorgeneric">
+    <attribute-category description="General." caption="General">
+      <group caption="Generic" id="abstractQrcodeConnectorGeneric">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/qrcode/config" required="true" description="Specify which configuration to use for this invocation." caption="Config Reference" name="config-ref"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" extends="http://www.mulesoft.org/schema/mule/qrcode/abstractQrcodeConnectorGeneric" abstract="true" image="icons/large/qrcode-connector-48x32.png" localId="my-processor" icon="icons/small/qrcode-connector-24x16.png" caption="My Processor">
+    <attribute-category description="General." caption="General">
+      <group caption="General" id="general">
+        <string javaType="java.lang.String" required="true" description="Content to be processed." caption="Content" name="content"></string>
+      </group>
+    </attribute-category>
+    <attribute-category description="Connection." caption="Connection">
+      <group caption="Connection" id="connection">
+        <label caption="Use these fields to override the credentials defined in the Qrcode connector."></label>
+        <label caption=""></label>
+        <string javaType="java.lang.String" required="false" description="A username." caption="Username" name="username"></string>
+        <string javaType="java.lang.String" required="false" description="A password." caption="Password" name="password"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" extends="http://www.mulesoft.org/schema/mule/qrcode/abstractQrcodeConnectorGeneric" abstract="true" image="icons/large/qrcode-connector-48x32.png" localId="read-q-r-code" icon="icons/small/qrcode-connector-24x16.png" caption="Read Q R Code">
+    <attribute-category description="General." caption="General">
+      <group caption="General" id="general">
+        <string javaType="java.lang.String" required="true" description="Content to be processed." caption="File Path" name="filePath"></string>
+      </group>
+    </attribute-category>
+    <attribute-category description="Connection." caption="Connection">
+      <group caption="Connection" id="connection">
+        <label caption="Use these fields to override the credentials defined in the Qrcode connector."></label>
+        <label caption=""></label>
+        <string javaType="java.lang.String" required="false" description="A username." caption="Username" name="username"></string>
+        <string javaType="java.lang.String" required="false" description="A password." caption="Password" name="password"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" extends="http://www.mulesoft.org/schema/mule/qrcode/abstractQrcodeConnectorGeneric" abstract="true" image="icons/large/qrcode-connector-48x32.png" localId="create-q-r-code" icon="icons/small/qrcode-connector-24x16.png" caption="Create Q R Code">
+    <attribute-category description="General." caption="General">
+      <group caption="General" id="general">
+        <string javaType="java.lang.String" required="true" description="QrCodeData Content to be processed." caption="File Path" name="filePath"></string>
+        <string javaType="java.lang.String" required="true" description="Content to be processed." caption="Qr Code Data" name="qrCodeData"></string>
+      </group>
+    </attribute-category>
+    <attribute-category description="Connection." caption="Connection">
+      <group caption="Connection" id="connection">
+        <label caption="Use these fields to override the credentials defined in the Qrcode connector."></label>
+        <label caption=""></label>
+        <string javaType="java.lang.String" required="false" description="A username." caption="Username" name="username"></string>
+        <string javaType="java.lang.String" required="false" description="A password." caption="Password" name="password"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" extends="http://www.mulesoft.org/schema/mule/qrcode/abstractQrcodeConnectorGeneric" abstract="true" image="icons/large/qrcode-connector-48x32.png" localId="create-bar-code" icon="icons/small/qrcode-connector-24x16.png" caption="Create Bar Code">
+    <attribute-category description="General." caption="General">
+      <group caption="General" id="general">
+        <string javaType="java.lang.String" required="true" description="Content to be processed." caption="Bar Code Data" name="BarCodeData"></string>
+        <string javaType="java.lang.String" required="true" description="QrCodeData Content to be processed." caption="File Path" name="filePath"></string>
+      </group>
+    </attribute-category>
+    <attribute-category description="Connection." caption="Connection">
+      <group caption="Connection" id="connection">
+        <label caption="Use these fields to override the credentials defined in the Qrcode connector."></label>
+        <label caption=""></label>
+        <string javaType="java.lang.String" required="false" description="A username." caption="Username" name="username"></string>
+        <string javaType="java.lang.String" required="false" description="A password." caption="Password" name="password"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" extends="http://www.mulesoft.org/schema/mule/qrcode/abstractQrcodeConnectorGeneric" abstract="true" image="icons/large/qrcode-connector-48x32.png" localId="read-bar-code" icon="icons/small/qrcode-connector-24x16.png" caption="Read Bar Code">
+    <attribute-category description="General." caption="General">
+      <group caption="General" id="general">
+        <string javaType="java.lang.String" required="true" description="QrCodeData Content to be processed." caption="File Path" name="filePath"></string>
+      </group>
+    </attribute-category>
+    <attribute-category description="Connection." caption="Connection">
+      <group caption="Connection" id="connection">
+        <label caption="Use these fields to override the credentials defined in the Qrcode connector."></label>
+        <label caption=""></label>
+        <string javaType="java.lang.String" required="false" description="A username." caption="Username" name="username"></string>
+        <string javaType="java.lang.String" required="false" description="A password." caption="Password" name="password"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+</namespace>

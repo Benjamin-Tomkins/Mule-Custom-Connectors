@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" prefix="fileconnector" url="http://www.mulesoft.org/schema/mule/fileconnector">
+  <global-cloud-connector extends="http://www.mulesoft.org/schema/mule/fileconnector/abstractFileconnectorConnectorGeneric" image="icons/large/fileconnector-connector-48x32.png" localId="config" icon="icons/small/fileconnector-connector-24x16.png" description="Global Fileconnector configuration information." caption="Fileconnector">
+    <attribute-category description="Fileconnector configuration properties." caption="General">
+      <group caption="Generic" id="fileconnectorGenericProperties">
+        <name required="true" description="Give a name to this configuration so it can be later referenced by config-ref." caption="Name" name="name"></name>
+      </group>
+      <group caption="Connection" id="connection">
+        <string javaType="java.lang.String" required="false" description="A username." caption="Username" name="username"></string>
+        <string javaType="java.lang.String" required="false" description="A password." caption="Password" name="password"></string>
+      </group>
+      <group caption="General" id="general">
+        <string javaType="java.lang.String" required="true" description="Configurable." caption="My Property" name="myProperty"></string>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector extends="http://www.mulesoft.org/schema/mule/fileconnector/abstractFileconnectorConnectorGeneric" image="icons/large/fileconnector-connector-48x32.png" localId="fileconnector-connector" icon="icons/small/fileconnector-connector-24x16.png" description="Cloud Connector." caption="Fileconnector" aliasId="org.mule.tooling.ui.modules.core.pattern.fileconnector">
+    <attribute-category description="General." caption="General">
+      <group caption="Generic" id="fileconnectorConnectorGeneric">
+        <modeSwitch description="Operation." caption="Operation" name="Fileconnector operations to execute">
+          <mode modeLabel="Get file" modeId="http://www.mulesoft.org/schema/mule/fileconnector/get-file"></mode>
+          <mode modeLabel="My processor" modeId="http://www.mulesoft.org/schema/mule/fileconnector/my-processor"></mode>
+          <mode modeLabel="Say hello" modeId="http://www.mulesoft.org/schema/mule/fileconnector/say-hello"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector abstract="true" image="icons/large/fileconnector-connector-48x32.png" localId="abstractFileconnectorConnectorGeneric" icon="icons/small/fileconnector-connector-24x16.png" description="Interact with Fileconnector." caption="Abstractfileconnectorconnectorgeneric">
+    <attribute-category description="General." caption="General">
+      <group caption="Generic" id="abstractFileconnectorConnectorGeneric">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/fileconnector/config" required="true" description="Specify which configuration to use for this invocation." caption="Config Reference" name="config-ref"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" extends="http://www.mulesoft.org/schema/mule/fileconnector/abstractFileconnectorConnectorGeneric" abstract="true" image="icons/large/fileconnector-connector-48x32.png" localId="my-processor" icon="icons/small/fileconnector-connector-24x16.png" caption="My Processor">
+    <attribute-category description="General." caption="General">
+      <group caption="General" id="general">
+        <string javaType="java.lang.String" required="true" description="Content to be processed." caption="Content" name="content"></string>
+      </group>
+    </attribute-category>
+    <attribute-category description="Connection." caption="Connection">
+      <group caption="Connection" id="connection">
+        <label caption="Use these fields to override the credentials defined in the Fileconnector connector."></label>
+        <label caption=""></label>
+        <string javaType="java.lang.String" required="false" description="A username." caption="Username" name="username"></string>
+        <string javaType="java.lang.String" required="false" description="A password." caption="Password" name="password"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.io.FileInputStream" extends="http://www.mulesoft.org/schema/mule/fileconnector/abstractFileconnectorConnectorGeneric" abstract="true" image="icons/large/fileconnector-connector-48x32.png" localId="get-file" icon="icons/small/fileconnector-connector-24x16.png" caption="Get File">
+    <attribute-category description="General." caption="General">
+      <group caption="General" id="general">
+        <string javaType="java.lang.String" required="true" description="The path of file." caption="Path" name="path"></string>
+      </group>
+    </attribute-category>
+    <attribute-category description="Connection." caption="Connection">
+      <group caption="Connection" id="connection">
+        <label caption="Use these fields to override the credentials defined in the Fileconnector connector."></label>
+        <label caption=""></label>
+        <string javaType="java.lang.String" required="false" description="A username." caption="Username" name="username"></string>
+        <string javaType="java.lang.String" required="false" description="A password." caption="Password" name="password"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" extends="http://www.mulesoft.org/schema/mule/fileconnector/abstractFileconnectorConnectorGeneric" abstract="true" image="icons/large/fileconnector-connector-48x32.png" localId="say-hello" icon="icons/small/fileconnector-connector-24x16.png" caption="Say Hello">
+    <attribute-category description="General." caption="General">
+      <group caption="General" id="general">
+        <string javaType="java.lang.String" required="true" description="The name to say hello to." caption="Name" name="name"></string>
+      </group>
+    </attribute-category>
+    <attribute-category description="Connection." caption="Connection">
+      <group caption="Connection" id="connection">
+        <label caption="Use these fields to override the credentials defined in the Fileconnector connector."></label>
+        <label caption=""></label>
+        <string javaType="java.lang.String" required="false" description="A username." caption="Username" name="username"></string>
+        <string javaType="java.lang.String" required="false" description="A password." caption="Password" name="password"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+</namespace>

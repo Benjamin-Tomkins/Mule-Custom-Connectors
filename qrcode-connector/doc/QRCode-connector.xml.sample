@@ -1,0 +1,21 @@
+<!-- BEGIN_INCLUDE(qrcode:my-processor) -->
+    <qrcode:my-processor content="#[map-payload:content]" />
+<!-- END_INCLUDE(qrcode:my-processor) -->
+
+<!-- BEGIN_INCLUDE(qrcode:readQRCode) -->
+    <qrcode:readQRCode filePath="place holder" />
+<!-- END_INCLUDE(qrcode:readQRCode) -->
+
+
+
+<!-- BEGIN_INCLUDE(qrcode:createQRCode) -->
+    <qrcode:createQRCode filePath="place holder" qrCodeData="asd" />
+<!-- END_INCLUDE(qrcode:createQRCode) -->
+
+<!-- BEGIN_INCLUDE(qrcode:createBarCode) -->
+    <qrcode:createBarCode filePath="place holder" BarCodeData="asd" />
+<!-- END_INCLUDE(qrcode:createBarCode) -->
+
+<!-- BEGIN_INCLUDE(qrcode:ReadBarCode) -->
+    <qrcode:ReadBarCode filePath="place holder"/>
+<!-- END_INCLUDE(qrcode:ReadBarCode) -->

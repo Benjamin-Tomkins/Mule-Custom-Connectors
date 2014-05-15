@@ -1,0 +1,13 @@
+<!-- BEGIN_INCLUDE(fileconnector:my-processor) -->
+    <fileconnector:my-processor content="#[map-payload:content]" />
+<!-- END_INCLUDE(fileconnector:my-processor) -->
+
+
+<!-- BEGIN_INCLUDE(hello:say-hello) -->
+    <hello:say-hello name="Joe" />
+<!-- END_INCLUDE(hello:say-hello) -->
+
+
+<!-- BEGIN_INCLUDE(hello:say-hello) -->
+    <File:GetFile path="Joe" />
+<!-- END_INCLUDE(hello:say-hello) -->
