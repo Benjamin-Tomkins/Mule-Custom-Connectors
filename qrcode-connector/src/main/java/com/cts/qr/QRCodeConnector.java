@@ -31,7 +31,7 @@ import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 /**
  * Cloud Connector
  *
- * @author MuleSoft, Inc.
+ * @author Santhosh, Kss.
  */
 @Connector(name="qrcode", schemaVersion="1.0-SNAPSHOT")
 public class QRCodeConnector
