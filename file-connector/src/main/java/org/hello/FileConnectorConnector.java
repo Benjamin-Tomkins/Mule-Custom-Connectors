@@ -20,7 +20,7 @@ import org.mule.api.annotations.Processor;
 /**
  * Cloud Connector
  *
- * @author MuleSoft, Inc.
+ * @author Santhosh, Kss.
  */
 @Connector(name="fileconnector", schemaVersion="1.0-SNAPSHOT")
 public class FileConnectorConnector
