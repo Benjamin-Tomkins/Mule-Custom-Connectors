@@ -1,0 +1,7 @@
+<!-- BEGIN_INCLUDE(instagram:my-processor) -->
+    <instagram:my-processor content="#[map-payload:content]" />
+<!-- END_INCLUDE(instagram:my-processor) -->
+
+<!-- BEGIN_INCLUDE(instagram:Start-Instagram) -->
+    <instagram:Start-Instagram start="" />
+<!-- END_INCLUDE(instagram:Start-Instagram) -->

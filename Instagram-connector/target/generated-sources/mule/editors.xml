@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" prefix="instagram" url="http://www.mulesoft.org/schema/mule/instagram">
+  <global-cloud-connector extends="http://www.mulesoft.org/schema/mule/instagram/abstractInstagramConnectorGeneric" image="icons/large/instagram-connector-48x32.png" localId="config" icon="icons/small/instagram-connector-24x16.png" description="Global Instagram configuration information." caption="Instagram">
+    <attribute-category description="Instagram configuration properties." caption="General">
+      <group caption="Generic" id="instagramGenericProperties">
+        <name required="true" description="Give a name to this configuration so it can be later referenced by config-ref." caption="Name" name="name"></name>
+      </group>
+      <group caption="Connection" id="connection">
+        <string javaType="java.lang.String" required="false" description="A username." caption="Username" name="username"></string>
+        <string javaType="java.lang.String" required="false" description="A password." caption="Password" name="password"></string>
+      </group>
+      <group caption="General" id="general">
+        <string javaType="java.lang.String" required="true" description="Configurable." caption="My Property" name="myProperty"></string>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector extends="http://www.mulesoft.org/schema/mule/instagram/abstractInstagramConnectorGeneric" image="icons/large/instagram-connector-48x32.png" localId="instagram-connector" icon="icons/small/instagram-connector-24x16.png" description="Cloud Connector." caption="Instagram" aliasId="org.mule.tooling.ui.modules.core.pattern.instagram">
+    <attribute-category description="General." caption="General">
+      <group caption="Generic" id="instagramConnectorGeneric">
+        <modeSwitch description="Operation." caption="Operation" name="Instagram operations to execute">
+          <mode modeLabel="Start instagram" modeId="http://www.mulesoft.org/schema/mule/instagram/start-instagram"></mode>
+          <mode modeLabel="My processor" modeId="http://www.mulesoft.org/schema/mule/instagram/my-processor"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector abstract="true" image="icons/large/instagram-connector-48x32.png" localId="abstractInstagramConnectorGeneric" icon="icons/small/instagram-connector-24x16.png" description="Interact with Instagram." caption="Abstractinstagramconnectorgeneric">
+    <attribute-category description="General." caption="General">
+      <group caption="Generic" id="abstractInstagramConnectorGeneric">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/instagram/config" required="true" description="Specify which configuration to use for this invocation." caption="Config Reference" name="config-ref"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" extends="http://www.mulesoft.org/schema/mule/instagram/abstractInstagramConnectorGeneric" abstract="true" image="icons/large/instagram-connector-48x32.png" localId="my-processor" icon="icons/small/instagram-connector-24x16.png" caption="My Processor">
+    <attribute-category description="General." caption="General">
+      <group caption="General" id="general">
+        <string javaType="java.lang.String" required="true" description="Content to be processed." caption="Content" name="content"></string>
+      </group>
+    </attribute-category>
+    <attribute-category description="Connection." caption="Connection">
+      <group caption="Connection" id="connection">
+        <label caption="Use these fields to override the credentials defined in the Instagram connector."></label>
+        <label caption=""></label>
+        <string javaType="java.lang.String" required="false" description="A username." caption="Username" name="username"></string>
+        <string javaType="java.lang.String" required="false" description="A password." caption="Password" name="password"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" extends="http://www.mulesoft.org/schema/mule/instagram/abstractInstagramConnectorGeneric" abstract="true" image="icons/large/instagram-connector-48x32.png" localId="start-instagram" icon="icons/small/instagram-connector-24x16.png" caption="Start Instagram">
+    <attribute-category description="General." caption="General">
+      <group caption="General" id="general">
+        <string javaType="java.lang.String" required="true" description="String to start." caption="Start" name="start"></string>
+      </group>
+    </attribute-category>
+    <attribute-category description="Connection." caption="Connection">
+      <group caption="Connection" id="connection">
+        <label caption="Use these fields to override the credentials defined in the Instagram connector."></label>
+        <label caption=""></label>
+        <string javaType="java.lang.String" required="false" description="A username." caption="Username" name="username"></string>
+        <string javaType="java.lang.String" required="false" description="A password." caption="Password" name="password"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+</namespace>
