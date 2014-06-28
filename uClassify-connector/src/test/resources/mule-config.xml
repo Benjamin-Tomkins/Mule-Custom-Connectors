@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:uclassify="http://www.mulesoft.org/schema/mule/uclassify" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/uclassify http://www.mulesoft.org/schema/mule/uclassify/1.0-SNAPSHOT/mule-uclassify.xsd">
+    <uclassify:config name="Uclassify" Key="TmqFnkCBXtOwDBkhuLMRiDOKI0" AccessKey="TmqFnkCBXtOwDBkhuLMRiDOKI0" text="i am very happy" doc:name="Uclassify"/>
+   
+    <flow name="uclassifypocFlow1" doc:name="uclassifypocFlow1">
+        <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="4571" doc:name="HTTP" path="uclassify"/>
+        <uclassify:my-processor config-ref="Uclassify" servicename="ANALYZE_MOOD" doc:name="Uclassify" Key="TmqFnkCBXtOwDBkhuLMRiDOKI0"/>
+        <logger message="#[payload.toString()]" level="INFO" doc:name="Logger"/>
+    </flow>
+</mule>

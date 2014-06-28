@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" prefix="foursquare" url="http://www.mulesoft.org/schema/mule/foursquare">
+  <global-cloud-connector extends="http://www.mulesoft.org/schema/mule/foursquare/abstractFoursquareConnectorGeneric" image="icons/large/foursquare-connector-48x32.png" localId="config" icon="icons/small/foursquare-connector-24x16.png" description="Global Foursquare configuration information." caption="Foursquare">
+    <attribute-category description="Foursquare configuration properties." caption="General">
+      <group caption="Generic" id="foursquareGenericProperties">
+        <name required="true" description="Give a name to this configuration so it can be later referenced by config-ref." caption="Name" name="name"></name>
+      </group>
+      <group caption="Connection" id="connection">
+        <string javaType="java.lang.String" required="true" description="Configurable." caption="Client_ I D" name="Client_ID"></string>
+        <string javaType="java.lang.String" required="true" description="Configurable." caption="Client_ Secret" name="Client_Secret"></string>
+        <string javaType="java.lang.String" required="true" description="Configurable." caption="Callback_ U R L" name="Callback_URL"></string>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector extends="http://www.mulesoft.org/schema/mule/foursquare/abstractFoursquareConnectorGeneric" image="icons/large/foursquare-connector-48x32.png" localId="foursquare-connector" icon="icons/small/foursquare-connector-24x16.png" description="Cloud Connector." caption="Foursquare" aliasId="org.mule.tooling.ui.modules.core.pattern.foursquare">
+    <attribute-category description="General." caption="General">
+      <group caption="Generic" id="foursquareConnectorGeneric">
+        <modeSwitch description="Operation." caption="Operation" name="Foursquare operations to execute">
+          <mode modeLabel="Search venues" modeId="http://www.mulesoft.org/schema/mule/foursquare/search-venues"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector abstract="true" image="icons/large/foursquare-connector-48x32.png" localId="abstractFoursquareConnectorGeneric" icon="icons/small/foursquare-connector-24x16.png" description="Interact with Foursquare." caption="Abstractfoursquareconnectorgeneric">
+    <attribute-category description="General." caption="General">
+      <group caption="Generic" id="abstractFoursquareConnectorGeneric">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/foursquare/config" required="true" description="Specify which configuration to use for this invocation." caption="Config Reference" name="config-ref"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" extends="http://www.mulesoft.org/schema/mule/foursquare/abstractFoursquareConnectorGeneric" abstract="true" image="icons/large/foursquare-connector-48x32.png" localId="search-venues" icon="icons/small/foursquare-connector-24x16.png" caption="Search Venues">
+    <attribute-category description="General." caption="General">
+      <group caption="General" id="general">
+        <string javaType="java.lang.String" required="true" description="Content to be processed." caption="Content" name="content"></string>
+      </group>
+    </attribute-category>
+    <attribute-category description="Connection." caption="Connection">
+      <group caption="Connection" id="connection">
+        <label caption="Use these fields to override the credentials defined in the Foursquare connector."></label>
+        <label caption=""></label>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+</namespace>

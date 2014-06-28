@@ -1,0 +1,3 @@
+<!-- BEGIN_INCLUDE(bulksms:SendMessage) -->
+    <bulksms:SendMessage content=" " no=" " />
+<!-- END_INCLUDE(bulksms:SendMessage) -->

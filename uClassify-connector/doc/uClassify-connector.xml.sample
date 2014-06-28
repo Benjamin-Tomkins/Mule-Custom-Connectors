@@ -1,0 +1,3 @@
+<!-- BEGIN_INCLUDE(uclassify:my-processor) -->
+    <uclassify:my-processor service="ANALYZE_MOOD" />
+<!-- END_INCLUDE(uclassify:my-processor) -->

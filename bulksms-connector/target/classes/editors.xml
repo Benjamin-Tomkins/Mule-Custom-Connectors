@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" prefix="bulksms" url="http://www.mulesoft.org/schema/mule/bulksms">
+  <global-cloud-connector extends="http://www.mulesoft.org/schema/mule/bulksms/abstractBulksmsConnectorGeneric" image="icons/large/bulksms-connector-48x32.png" localId="config" icon="icons/small/bulksms-connector-24x16.png" description="Global Bulksms configuration information." caption="Bulksms">
+    <attribute-category description="Bulksms configuration properties." caption="General">
+      <group caption="Generic" id="bulksmsGenericProperties">
+        <name required="true" description="Give a name to this configuration so it can be later referenced by config-ref." caption="Name" name="name"></name>
+      </group>
+      <group caption="Connection" id="connection">
+        <string javaType="java.lang.String" required="true" description="Configurable." caption="Uname" name="Uname"></string>
+        <string defaultValue="http://bulksms.vsms.net:5567/eapi/submission/send_sms/2/2.0" javaType="java.lang.String" required="false" description="Configurable." caption="U R L" name="URL"></string>
+        <password javaType="java.lang.String" required="true" description="Configurable." caption="Pass" name="Pass"></password>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector extends="http://www.mulesoft.org/schema/mule/bulksms/abstractBulksmsConnectorGeneric" image="icons/large/bulksms-connector-48x32.png" localId="bulksms-connector" icon="icons/small/bulksms-connector-24x16.png" description="Cloud Connector." caption="Bulksms" aliasId="org.mule.tooling.ui.modules.core.pattern.bulksms">
+    <attribute-category description="General." caption="General">
+      <group caption="Generic" id="bulksmsConnectorGeneric">
+        <modeSwitch description="Operation." caption="Operation" name="Bulksms operations to execute">
+          <mode modeLabel="Send message" modeId="http://www.mulesoft.org/schema/mule/bulksms/send-message"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector abstract="true" image="icons/large/bulksms-connector-48x32.png" localId="abstractBulksmsConnectorGeneric" icon="icons/small/bulksms-connector-24x16.png" description="Interact with Bulksms." caption="Abstractbulksmsconnectorgeneric">
+    <attribute-category description="General." caption="General">
+      <group caption="Generic" id="abstractBulksmsConnectorGeneric">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/bulksms/config" required="true" description="Specify which configuration to use for this invocation." caption="Config Reference" name="config-ref"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" extends="http://www.mulesoft.org/schema/mule/bulksms/abstractBulksmsConnectorGeneric" abstract="true" image="icons/large/bulksms-connector-48x32.png" localId="send-message" icon="icons/small/bulksms-connector-24x16.png" caption="Send Message">
+    <attribute-category description="General." caption="General">
+      <group caption="General" id="general">
+        <string javaType="java.lang.String" required="true" description="Content to be processed." caption="Content" name="content"></string>
+        <string javaType="java.lang.String" required="true" description="Phone no to be sent." caption="No" name="no"></string>
+      </group>
+    </attribute-category>
+    <attribute-category description="Connection." caption="Connection">
+      <group caption="Connection" id="connection">
+        <label caption="Use these fields to override the credentials defined in the Bulksms connector."></label>
+        <label caption=""></label>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+</namespace>
